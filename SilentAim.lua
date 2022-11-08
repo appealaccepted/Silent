@@ -56,7 +56,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
                     local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Torso].CFrame.Position) * CFrame.new(0, 0, -4)
                     local RayCast = Ray.new(CastingFrom.Position, CastingFrom.LookVector * 9000)
                     local World, ToSpace = workspace:FindPartOnRayWithIgnoreList(RayCast, {LocalPlayer.Character:FindFirstChild("Head")})
-                    local RootWorld = (Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude or (Enemy[Options.Head].CFrame.Position - ToSpace).magnitude
+                    local RootWorld = (Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude
                     if RootWorld < 4 then
                         local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Torso].Position) or Camera:WorldToScreenPoint(Enemy[Options.Head].Position)
                         if Visible then
