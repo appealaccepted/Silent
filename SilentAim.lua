@@ -1,3 +1,9 @@
+_G.FOV =  (  45  )
+
+_G.Prediction =  (  .16  )
+
+_G.AimKey =  (  "z"  )
+
 local SilentAim = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Players = game:GetService("Players")
@@ -73,7 +79,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 
         if Targete ~= nil and Targete[Options.Torso] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
-                local ShootThis = Targete[Options.Head]
+                local ShootThis = Targete[Options.Head] -- or Targete[Options.Torso]
                 local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
                 return ((Index == "Hit" and Predicted_Position))
             end
