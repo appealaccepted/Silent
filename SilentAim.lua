@@ -4,6 +4,10 @@ _G.Prediction =  (  .16  )
 
 _G.AimKey =  (  "z"  )
 
+
+-- anti lock resolver
+
+
 local RunService = game:GetService("RunService")
 
 RunService.Heartbeat:Connect(function()
