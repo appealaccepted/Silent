@@ -4,6 +4,20 @@ _G.Prediction =  (  .16  )
 
 _G.AimKey =  (  "z"  )
 
+local RunService = game:GetService("RunService")
+
+RunService.Heartbeat:Connect(function()
+   pcall(function()
+       for i,v in pairs(game.Players:GetChildren()) do
+           if v.Name ~= game.Players.LocalPlayer.Name then
+               local hrp = v.Character.HumanoidRootPart
+               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
+           end
+       end
+   end)
+end)
+
 local SilentAim = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Players = game:GetService("Players")
@@ -56,19 +70,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
         local Targete = nil
         if SilentAim then
                 
-                             local RunService = game:GetService("RunService")
-
-RunService.Heartbeat:Connect(function()
-   pcall(function()
-       for i,v in pairs(game.Players:GetChildren()) do
-           if v.Name ~= game.Players.LocalPlayer.Name then
-               local hrp = v.Character.HumanoidRootPart
-               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
-               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
-           end
-       end
-   end)
-end)
+                
 
             for _, v in pairs(Players:GetPlayers()) do 
                 if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("Humanoid").Health > 0 then
