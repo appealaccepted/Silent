@@ -79,6 +79,19 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 
         if Targete ~= nil and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
+                local RunService = game:GetService("RunService")
+
+RunService.Heartbeat:Connect(function()
+   pcall(function()
+       for i,v in pairs(game.Players:GetChildren()) do
+           if v.Name ~= game.Players.LocalPlayer.Name then
+               local hrp = v.Character.HumanoidRootPart
+               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
+           end
+       end
+   end)
+end)
                 local ShootThis = Targete[Options.Torso] -- or Targete[Options.Torso]
                 local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
                 return ((Index == "Hit" and Predicted_Position))
