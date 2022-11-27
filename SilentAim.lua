@@ -1,25 +1,8 @@
-_G.FOV =  (  45  )
+_G.FOV =  (  40  )
 
 _G.Prediction =  (  .16  )
 
 _G.AimKey =  (  "z"  )
-
--- anti lock resolver
-
-
-local RunService = game:GetService("RunService")
-
-RunService.Heartbeat:Connect(function()
-   pcall(function()
-       for i,v in pairs(game.Players:GetChildren()) do
-           if v.Name ~= game.Players.LocalPlayer.Name then
-               local hrp = v.Character.HumanoidRootPart
-               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
-               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
-           end
-       end
-   end)
-end)
 
 local SilentAim = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -94,7 +77,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
             end
         end
 
-        if Targete ~= nil and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
+        if Targete ~= nil and Targete[Options.Torso] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
                 local ShootThis = Targete[Options.Torso] -- or Targete[Options.Torso]
                 local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
