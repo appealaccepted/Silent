@@ -82,7 +82,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
             end
         end
 
-        if Targete ~= nil and Targete[Options.Torso] or Targete[Options.Head] or Targete[Options.UpperTorso] or Targete[Options.LeftHand] or Targete[Options.RightHand] or Targete[Options.RightUpperArm] or Targete[Options.LeftUpperArm] and Targete:FindFirstChild("Humanoid").Health > 0 then
+        if Targete ~= nil and Targete[Options.Torso] and Targete[Options.Head] and Targete[Options.UpperTorso] and Targete[Options.LeftHand] and Targete[Options.RightHand] and Targete[Options.RightUpperArm] and Targete[Options.LeftUpperArm] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
                 local ShootThis = Targete[Options.Torso] or Targete[Options.Head] or Targete[Options.UpperTorso] or Targete[Options.LeftHand] or Targete[Options.RightHand] or Targete[Options.RightUpperArm] or Targete[Options.LeftUpperArm}
                 local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
