@@ -1,8 +1,22 @@
-_G.FOV =  (  35  )
+_G.FOV =  (  45  )
 
 _G.Prediction =  (  .16  )
 
 _G.AimKey =  (  "z"  )
+
+local RunService = game:GetService("RunService")
+
+RunService.Heartbeat:Connect(function()
+   pcall(function()
+       for i,v in pairs(game.Players:GetChildren()) do
+           if v.Name ~= game.Players.LocalPlayer.Name then
+               local hrp = v.Character.HumanoidRootPart
+               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
+           end
+       end
+   end)
+end)
 
 local SilentAim = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
@@ -24,7 +38,22 @@ FOV_CIRCLE.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize
 Options = {
     Torso = "HumanoidRootPart";
     Head = "Head";
+    Left = "LeftHand";
+    Right = "RightHand";
+    LeftLower = "LeftLowerArm";
+    RightLower = "RightLowerArm";
+    LeftUpper = "LeftUpperArm";
+    RightUpper = "RightUpperArm";
+    LeftFoot = "LeftFoot";
+    LeftLowerLeg = "LeftLowerLeg";
+    UpperTorso = "UpperTorso";
+    LeftUpperLeg = "LeftUpperLeg";
+    RightLowerLeg = "RightLowerLeg";
+    RightFoot = "RightFoot";
+    LowerTorso = "LowerTorso";
 }
+
+print(Options) -- testing
 
 local function MoveFovCircle()
     pcall(function()
@@ -79,7 +108,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 
         if Targete ~= nil and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
-                local ShootThis = Targete[Options.Torso]
+                local ShootThis = Targete[Options.Torso] or Targete[Options.Head] or Targete[Options.Left] or Targete[Options.Right] or Targete[Options.LeftLower] or Targete[Options.RightLower] or Targete[Options.LeftUpper] or Targete[Options.RightUpper] or Targete[Options.LeftFoot] or Targete[Options.LeftLowerLeg] or Targete[Options.UpperTorso] or Targete[Options.LeftUpperLeg] or Targete[Options.RightLowerLeg] or Targete[Options.RightFoot] or Targete[Options.LowerTorso]
                 local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
                 return ((Index == "Hit" and Predicted_Position))
             end
