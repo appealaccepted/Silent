@@ -38,19 +38,7 @@ FOV_CIRCLE.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize
 Options = {
     Torso = "HumanoidRootPart";
     Head = "Head";
-    Left = "LeftHand";
-    Right = "RightHand";
-    LeftLower = "LeftLowerArm";
-    RightLower = "RightLowerArm";
-    LeftUpper = "LeftUpperArm";
-    RightUpper = "RightUpperArm";
-    LeftFoot = "LeftFoot";
-    LeftLowerLeg = "LeftLowerLeg";
     UpperTorso = "UpperTorso";
-    LeftUpperLeg = "LeftUpperLeg";
-    RightLowerLeg = "RightLowerLeg";
-    RightFoot = "RightFoot";
-    LowerTorso = "LowerTorso";
 }
 
 print(Options) -- testing
@@ -108,7 +96,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 
         if Targete ~= nil and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
-                local ShootThis = Targete[Options.Torso] or Targete[Options.Head] or Targete[Options.Left] or Targete[Options.Right] or Targete[Options.LeftLower] or Targete[Options.RightLower] or Targete[Options.LeftUpper] or Targete[Options.RightUpper] or Targete[Options.LeftFoot] or Targete[Options.LeftLowerLeg] or Targete[Options.UpperTorso] or Targete[Options.LeftUpperLeg] or Targete[Options.RightLowerLeg] or Targete[Options.RightFoot] or Targete[Options.LowerTorso]
+                local ShootThis = Targete[Options.Torso] or Targete[Options.Head] or Targete[Options.LeftFoot] or Targete[Options.LeftLowerLeg] or Targete[Options.UpperTorso]
                 local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
                 return ((Index == "Hit" and Predicted_Position))
             end
