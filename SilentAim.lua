@@ -4,6 +4,7 @@ _G.Prediction =  (  .16  )
 
 _G.AimKey =  (  "z"  )
 
+while wait(0) do
 local RunService = game:GetService("RunService")
 
 RunService.Heartbeat:Connect(function()
@@ -17,6 +18,7 @@ RunService.Heartbeat:Connect(function()
        end
    end)
 end)
+end
 
 local SilentAim = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
