@@ -4,8 +4,7 @@ _G.Prediction =  (  .16  )
 
 _G.AimKey =  (  "z"  )
 
-local function AAA()
-   game:GetService("RunService").Heartbeat:Connect(function()
+game:GetService("RunService").Heartbeat:Connect(function()
    pcall(function()
        for i,v in pairs(game.Players:GetChildren()) do
            if v.Name ~= game.Players.LocalPlayer.Name then
@@ -40,9 +39,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
        end
    end)
 end)
-end
-
-AAA()
 
 local SilentAim = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
