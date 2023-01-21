@@ -4,22 +4,6 @@ _G.Prediction =  (  .16  )
 
 _G.AimKey =  (  "z"  )
 
-while wait(0) do
-local RunService = game:GetService("RunService")
-
-RunService.Heartbeat:Connect(function()
-   pcall(function()
-       for i,v in pairs(game.Players:GetChildren()) do
-           if v.Name ~= game.Players.LocalPlayer.Name then
-               local hrp = v.Character.HumanoidRootPart
-               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
-               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
-           end
-       end
-   end)
-end)
-end
-
 local SilentAim = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Players = game:GetService("Players")
@@ -43,7 +27,45 @@ Options = {
     UpperTorso = "UpperTorso";
 }
 
-print(Options) -- testing
+-- print(Options) \\ -- testing -- //
+
+local function AAA()
+   game:GetService("RunService").Heartbeat:Connect(function()
+   pcall(function()
+       for i,v in pairs(game.Players:GetChildren()) do
+           if v.Name ~= game.Players.LocalPlayer.Name then
+               local hrp = v.Character.HumanoidRootPart
+               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
+           end
+       end
+   end)
+end)
+   
+game:GetService("RunService").Heartbeat:Connect(function()
+   pcall(function()
+       for i,v in pairs(game.Players:GetChildren()) do
+           if v.Name ~= game.Players.LocalPlayer.Name then
+               local Head = v.Character.Head
+               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
+           end
+       end
+   end)
+end)
+   
+game:GetService("RunService").Heartbeat:Connect(function()
+   pcall(function()
+       for i,v in pairs(game.Players:GetChildren()) do
+           if v.Name ~= game.Players.LocalPlayer.Name then
+               local Upper = v.Character.UpperTorso
+               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
+           end
+       end
+   end)
+end)
+end
 
 local function MoveFovCircle()
     pcall(function()
@@ -98,6 +120,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 
         if Targete ~= nil and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
+                AAA()
                 local ShootThis = Targete[Options.Torso] or Targete[Options.Head] or Targete[Options.LeftFoot] or Targete[Options.LeftLowerLeg] or Targete[Options.UpperTorso]
                 local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
                 return ((Index == "Hit" and Predicted_Position))
