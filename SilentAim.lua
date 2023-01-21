@@ -4,31 +4,6 @@ _G.Prediction =  (  .16  )
 
 _G.AimKey =  (  "z"  )
 
-local SilentAim = true
-local LocalPlayer = game:GetService("Players").LocalPlayer
-local Players = game:GetService("Players")
-local Mouse = LocalPlayer:GetMouse()
-local Camera = game:GetService("Workspace").CurrentCamera
-hookmetamethod = hookmetamethod
-Drawing = Drawing
-
-local FOV_CIRCLE = Drawing.new("Circle")
-FOV_CIRCLE.Visible = false
-FOV_CIRCLE.Filled = false
-FOV_CIRCLE.Thickness = 0
-FOV_CIRCLE.Transparency = 1
-FOV_CIRCLE.Color = Color3.new(0, 1, 0)
-FOV_CIRCLE.Radius = _G.FOV
-FOV_CIRCLE.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
-
-Options = {
-    Torso = "HumanoidRootPart";
-    Head = "Head";
-    UpperTorso = "UpperTorso";
-}
-
--- print(Options) \\ -- testing -- //
-
 local function AAA()
    game:GetService("RunService").Heartbeat:Connect(function()
    pcall(function()
@@ -66,6 +41,33 @@ game:GetService("RunService").Heartbeat:Connect(function()
    end)
 end)
 end
+
+AAA()
+
+local SilentAim = true
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Players = game:GetService("Players")
+local Mouse = LocalPlayer:GetMouse()
+local Camera = game:GetService("Workspace").CurrentCamera
+hookmetamethod = hookmetamethod
+Drawing = Drawing
+
+local FOV_CIRCLE = Drawing.new("Circle")
+FOV_CIRCLE.Visible = false
+FOV_CIRCLE.Filled = false
+FOV_CIRCLE.Thickness = 0
+FOV_CIRCLE.Transparency = 1
+FOV_CIRCLE.Color = Color3.new(0, 1, 0)
+FOV_CIRCLE.Radius = _G.FOV
+FOV_CIRCLE.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
+
+Options = {
+    Torso = "HumanoidRootPart";
+    Head = "Head";
+    UpperTorso = "UpperTorso";
+}
+
+-- print(Options) \\ -- testing -- //
 
 local function MoveFovCircle()
     pcall(function()
@@ -120,7 +122,6 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 
         if Targete ~= nil and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
-                AAA()
                 local ShootThis = Targete[Options.Torso] or Targete[Options.Head] or Targete[Options.LeftFoot] or Targete[Options.LeftLowerLeg] or Targete[Options.UpperTorso]
                 local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
                 return ((Index == "Hit" and Predicted_Position))
