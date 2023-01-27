@@ -67,7 +67,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
                     local World, ToSpace = workspace:FindPartOnRayWithIgnoreList(RayCast, {LocalPlayer.Character:FindFirstChild("Head")})
                     local RootWorld = (Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude
                     if RootWorld < 4 then
-                        local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Torso].Position) or Camera:WorldToScreenPoint(Enemy[Options.Head].Position) or Camera:WorldToScreenPoint(Enemy[Options.Upper].Position)
+                        local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Torso].Position)
                         if Visible then
                             local Real_Magnitude = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(RootPartPosition.X, RootPartPosition.Y)).Magnitude
                             if Real_Magnitude < Distance and Real_Magnitude < FOV_CIRCLE.Radius then
