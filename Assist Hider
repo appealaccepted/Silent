@@ -9,11 +9,12 @@ while task.wait() do
             game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight"):Destroy()
         end
         
-    end
-end
-
-StarterGui:SetCore("SendNotification", {
+	StarterGui:SetCore("SendNotification", {
 	Title = "Appeal Assist Hider",
 	Text = "Assist was Hidden! Have fun!",
 	Duration = 1,
 })
+
+	
+    end
+end
