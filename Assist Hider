@@ -4,7 +4,7 @@ game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil messag
 	Duration = .1,
 })
 
-game:GetService("RunService").Heartbeat:Connect(function()
+game:GetService("RunService").RenderStepped:Connect(function()
 	if game:GetService("CoreGui"):FindFirstChild("Aim Assistant [2.0.0]") then
 		game:GetService("CoreGui")["Aim Assistant [2.0.0]"].MainFrame.Visible = false
 		game:GetService("CoreGui")["Aim Assistant [2.0.0]"].Circle.Visible = false
