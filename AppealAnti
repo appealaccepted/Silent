@@ -6,7 +6,7 @@ getgenv().Z = 0
 
 game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil message to lyk that it was executed and hidden
 	Title = "Appeal.xyz",
-	Text = "Anti-Lock was loadedd! Have fun catching lockers!",
+	Text = "Anti-Lock was loaded! Have fun catching lockers!",
 	Duration = .5,
 })
 
