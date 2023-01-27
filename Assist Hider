@@ -1,4 +1,4 @@
-game:GetService("StarterGui"):SetCore("SendNotification", {
+game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil message to lyk that it was executed and hidden
 	Title = "Appeal Assist Hider",
 	Text = "Assist was Hidden! Have fun!",
 	Duration = 1,
