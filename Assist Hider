@@ -7,4 +7,4 @@ game:GetService("RunService").RenderStepped:Connect(function()
 	if game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight") then
 		game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight"):Destroy()
 	end
-end
+end)
