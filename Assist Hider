@@ -1,4 +1,4 @@
-wait()
+wait(5)
 if game:GetService("CoreGui"):FindFirstChild("Aim Assistant [2.0.0]") then
 	game:GetService("CoreGui")["Aim Assistant [2.0.0]"].MainFrame.Visible = false
 	game:GetService("CoreGui")["Aim Assistant [2.0.0]"].Circle.Visible = false
