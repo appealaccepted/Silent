@@ -1,8 +1,8 @@
 getgenv().tog = false
 getgenv().key = "c"
-getgenv().X = 1000
-getgenv().Y = 1000
-getgenv().Z = 1000
+getgenv().X = 100
+getgenv().Y = -1
+getgenv().Z = 100
 
 game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil message to lyk that it was executed and hidden
 	Title = "Appeal.xyz",
@@ -43,5 +43,7 @@ game:GetService("Players").LocalPlayer:GetMouse().KeyDown:Connect(function(keyPr
 	end
 end)
 hookfunction(game.Players.LocalPlayer.IsInGroup, function() return true end)
+
+wait(3)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Nosssa/NossLock/main/VinGUI"))()
