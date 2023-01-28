@@ -436,7 +436,3 @@ env.stop_aim_assistant = function()
 	connections = nil
 	instances = nil
 end
-
-wait(5)
-
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"), true))()
