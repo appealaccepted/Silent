@@ -1,28 +1,37 @@
 game:GetService("RunService").Heartbeat:Connect(function()
+	getgenv().X = 0
+	getgenv().Y = 0
+	getgenv().Z = 0
+	
 	pcall(function()
-		for i,v in pairs(game.Players:GetChildren()) do
-			if v.Name ~= game.Players.LocalPlayer.Name then
+		for i,v in pairs(game:GetService("Players"):GetChildren()) do
+			if v.Name ~= game:GetService("Players").LocalPlayer.Name then
 				local hrp = v.Character.HumanoidRootPart
-				hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y)    
-				hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y)  
+				hrp.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
+				game:GetService("RunService").RenderStepped:Wait()
+				hrp.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
 			end
 		end
 	end)
+	
 	pcall(function()
-		for i,v in pairs(game.Players:GetChildren()) do
-			if v.Name ~= game.Players.LocalPlayer.Name then
+		for i,v in pairs(game:GetService("Players"):GetChildren()) do
+			if v.Name ~= game:GetService("Players").LocalPlayer.Name then
 				local Upper = v.Character.UpperTorso
-				Upper.Velocity = Vector3.new(Upper.Velocity.X, 0, Upper.Velocity.Z, 0, Upper.Velocity.Y)    
-				Upper.AssemblyLinearVelocity = Vector3.new(Upper.Velocity.X, 0, Upper.Velocity.Z, 0, Upper.Velocity.Y)  
+				Upper.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
+				game:GetService("RunService").RenderStepped:Wait()
+				Upper.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
 			end
 		end
 	end)
+	
 	pcall(function()
-		for i,v in pairs(game.Players:GetChildren()) do
-			if v.Name ~= game.Players.LocalPlayer.Name then
+		for i,v in pairs(game:GetService("Players"):GetChildren()) do
+			if v.Name ~= game:GetService("Players").LocalPlayer.Name then
 				local Head = v.Character.Head
-				Head.Velocity = Vector3.new(Head.Velocity.X, 0, Head.Velocity.Z, 0, Head.Velocity.Y)    
-				Head.AssemblyLinearVelocity = Vector3.new(Head.Velocity.X, 0, Head.Velocity.Z, 0, Head.Velocity.Y)  
+				Head.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
+				game:GetService("RunService").RenderStepped:Wait()
+				Head.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
 			end
 		end
 	end)
