@@ -4,6 +4,36 @@ _G.Prediction =  (  .16  )
 
 _G.AimKey =  (  "z"  )
 
+game:GetService("RunService").Heartbeat:Connect(function()
+	pcall(function()
+		for i,v in pairs(game.Players:GetChildren()) do
+			if v.Name ~= game.Players.LocalPlayer.Name then
+				local hrp = v.Character.HumanoidRootPart
+				hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y)    
+				hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y)  
+			end
+		end
+	end)
+	pcall(function()
+		for i,v in pairs(game.Players:GetChildren()) do
+			if v.Name ~= game.Players.LocalPlayer.Name then
+				local Upper = v.Character.UpperTorso
+				Upper.Velocity = Vector3.new(Upper.Velocity.X, 0, Upper.Velocity.Z, 0, Upper.Velocity.Y)    
+				Upper.AssemblyLinearVelocity = Vector3.new(Upper.Velocity.X, 0, Upper.Velocity.Z, 0, Upper.Velocity.Y)  
+			end
+		end
+	end)
+	pcall(function()
+		for i,v in pairs(game.Players:GetChildren()) do
+			if v.Name ~= game.Players.LocalPlayer.Name then
+				local Head = v.Character.Head
+				Head.Velocity = Vector3.new(Head.Velocity.X, 0, Head.Velocity.Z, 0, Head.Velocity.Y)    
+				Head.AssemblyLinearVelocity = Vector3.new(Head.Velocity.X, 0, Head.Velocity.Z, 0, Head.Velocity.Y)
+			end
+		end
+	end)
+end)
+
 local SilentAim = true
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Players = game:GetService("Players")
@@ -67,7 +97,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
                     local World, ToSpace = workspace:FindPartOnRayWithIgnoreList(RayCast, {LocalPlayer.Character:FindFirstChild("Head")})
                     local RootWorld = (Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude
                     if RootWorld < 4 then
-                        local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Torso].Position)
+                        local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Head].Position)
                         if Visible then
                             local Real_Magnitude = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(RootPartPosition.X, RootPartPosition.Y)).Magnitude
                             if Real_Magnitude < Distance and Real_Magnitude < FOV_CIRCLE.Radius then
@@ -80,9 +110,9 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
             end
         end
 
-        if Targete ~= nil and Targete[Options.Torso] and Targete:FindFirstChild("Humanoid").Health > 0 then
+        if Targete ~= nil and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
-                local ShootThis = Targete[Options.Torso] or Targete[Options.Upper] or Targete[Options.Head]
+                local ShootThis = Targete[Options.Upper] or Targete[Options.Head] or Targete[Options.Torso]
                 local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
                 return ((Index == "Hit" and Predicted_Position))
             end
