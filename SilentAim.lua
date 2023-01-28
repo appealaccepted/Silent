@@ -98,9 +98,9 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
                     local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Upper].CFrame.Position) * CFrame.new(0, 0, -4)
                     local RayCast = Ray.new(CastingFrom.Position, CastingFrom.LookVector * 9000)
                     local World, ToSpace = workspace:FindPartOnRayWithIgnoreList(RayCast, {LocalPlayer.Character:FindFirstChild("Head")})
-                    local RootWorld = (Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude
+                    local RootWorld = (Enemy[Options.Upper].CFrame.Position - ToSpace).magnitude
                     if RootWorld < 4 then
-                        local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Head].Position)
+                        local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Upper].Position)
                         if Visible then
                             local Real_Magnitude = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(RootPartPosition.X, RootPartPosition.Y)).Magnitude
                             if Real_Magnitude < Distance and Real_Magnitude < FOV_CIRCLE.Radius then
@@ -113,10 +113,10 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
             end
         end
 
-        if Targete ~= nil and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
+        if Targete ~= nil and Targete[Options.Upper] and Targete:FindFirstChild("Humanoid").Health > 0 then
             if SilentAim then
-                local ShootThis = Targete[Options.Upper] or Targete[Options.Head] or Targete[Options.Torso]
-                local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
+                local ShootThis = Targete[Options.Upper] or Targete[Options.Head]
+                local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-1,0)) --  (-1) = Less blatant
                 return ((Index == "Hit" and Predicted_Position))
             end
         end
