@@ -62,10 +62,10 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
             for _, v in pairs(Players:GetPlayers()) do 
                 if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("Head") and v.Character:FindFirstChild("Humanoid").Health > 0 then
                     local Enemy = v.Character	
-                    local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.HeadFrame.Position) * CFrame.new(0, 0, -4) --CFrame.new(Camera.CFrame.Position, Enemy[Options.Torso].CFrame.Position) * CFrame.new(0, 0, -4)
+                    local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Head.Position) * CFrame.new(0, 0, -4) --CFrame.new(Camera.CFrame.Position, Enemy[Options.Torso].CFrame.Position) * CFrame.new(0, 0, -4)
                     local RayCast = Ray.new(CastingFrom.Position, CastingFrom.LookVector * 9000)
                     local World, ToSpace = workspace:FindPartOnRayWithIgnoreList(RayCast, {LocalPlayer.Character:FindFirstChild("Head")})
-                    local RootWorld = (Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude
+                    local RootWorld = (Enemy[Options.Head].CFrame.Position - ToSpace).magnitude --(Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude
                     if RootWorld < 4 then
                         local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Head].Position) --Camera:WorldToScreenPoint(Enemy[Options.Torso].Position)
                         if Visible then
