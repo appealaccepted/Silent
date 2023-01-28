@@ -1,8 +1,8 @@
 getgenv().tog = false
 getgenv().key = "c"
-getgenv().X = 1000
-getgenv().Y = 1000
-getgenv().Z = 1000
+getgenv().X = 200
+getgenv().Y = -5
+getgenv().Z = 200
 
 game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil message to lyk that it was executed and hidden
 	Title = "Appeal.xyz",
