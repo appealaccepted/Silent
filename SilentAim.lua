@@ -5,30 +5,33 @@ _G.Prediction =  (  .16  )
 _G.AimKey =  (  "z"  )
 
 game:GetService("RunService").Heartbeat:Connect(function()
+	task.wait(1)
 	pcall(function()
 		for i,v in pairs(game.Players:GetChildren()) do
 			if v.Name ~= game.Players.LocalPlayer.Name then
 				local hrp = v.Character.HumanoidRootPart
-				hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y)    
-				hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y)  
+				hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y, 0)    
+				hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y, 0)
 			end
 		end
 	end)
+	task.wait(1)
 	pcall(function()
 		for i,v in pairs(game.Players:GetChildren()) do
 			if v.Name ~= game.Players.LocalPlayer.Name then
 				local Upper = v.Character.UpperTorso
-				Upper.Velocity = Vector3.new(Upper.Velocity.X, 0, Upper.Velocity.Z, 0, Upper.Velocity.Y)    
-				Upper.AssemblyLinearVelocity = Vector3.new(Upper.Velocity.X, 0, Upper.Velocity.Z, 0, Upper.Velocity.Y)  
+				Upper.Velocity = Vector3.new(Upper.Velocity.X, 0, Upper.Velocity.Z, 0, Upper.Velocity.Y, 0)    
+				Upper.AssemblyLinearVelocity = Vector3.new(Upper.Velocity.X, 0, Upper.Velocity.Z, 0, Upper.Velocity.Y, 0) 
 			end
 		end
 	end)
+	task.wait(1)
 	pcall(function()
 		for i,v in pairs(game.Players:GetChildren()) do
 			if v.Name ~= game.Players.LocalPlayer.Name then
 				local Head = v.Character.Head
-				Head.Velocity = Vector3.new(Head.Velocity.X, 0, Head.Velocity.Z, 0, Head.Velocity.Y)    
-				Head.AssemblyLinearVelocity = Vector3.new(Head.Velocity.X, 0, Head.Velocity.Z, 0, Head.Velocity.Y)
+				Head.Velocity = Vector3.new(Head.Velocity.X, 0, Head.Velocity.Z, 0, Head.Velocity.Y, 0)    
+				Head.AssemblyLinearVelocity = Vector3.new(Head.Velocity.X, 0, Head.Velocity.Z, 0, Head.Velocity.Y, 0)
 			end
 		end
 	end)
@@ -92,7 +95,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
             for _, v in pairs(Players:GetPlayers()) do 
                 if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("Humanoid").Health > 0 then
                     local Enemy = v.Character	
-                    local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Torso].CFrame.Position) * CFrame.new(0, 0, -4)
+                    local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Upper].CFrame.Position) * CFrame.new(0, 0, -4)
                     local RayCast = Ray.new(CastingFrom.Position, CastingFrom.LookVector * 9000)
                     local World, ToSpace = workspace:FindPartOnRayWithIgnoreList(RayCast, {LocalPlayer.Character:FindFirstChild("Head")})
                     local RootWorld = (Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude
