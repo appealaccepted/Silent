@@ -1,10 +1,8 @@
-while wait() do
+game:GetService("RunService").HeartBeat:Connect(function()
 	if game:GetService("CoreGui"):FindFirstChild("Aim Assistant [2.0.0]") then
 		game:GetService("CoreGui")["Aim Assistant [2.0.0]"].MainFrame.Visible = false
 		game:GetService("CoreGui")["Aim Assistant [2.0.0]"].Circle.Visible = false
 	end
-	
-	wait(.5)
 	
 	if game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight") then
 		game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight"):Destroy()
