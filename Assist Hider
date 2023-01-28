@@ -4,18 +4,20 @@ game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil messag
 	Duration = .1,
 })
 
-wait(5)
-
 while task.wait(.5) do
-   if game:GetService("CoreGui"):FindFirstChild("Aim Assistant [2.0.0]") then
-   game:GetService("CoreGui")["Aim Assistant [2.0.0]"].MainFrame.Visible = false
-   game:GetService("CoreGui")["Aim Assistant [2.0.0]"].Circle.Visible = false
-
-   task.wait(.5)
-
-  if game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight") then
-      game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight"):Destroy()
-  end
-
-  end
+	
+	task.wait(5)
+	
+	if game:GetService("CoreGui"):FindFirstChild("Aim Assistant [2.0.0]") then
+		game:GetService("CoreGui")["Aim Assistant [2.0.0]"].MainFrame.Visible = false
+		game:GetService("CoreGui")["Aim Assistant [2.0.0]"].Circle.Visible = false
+		
+		task.wait(.5)
+		
+		if game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight") then
+			game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight"):Destroy()
+		end
+		
+		
+	end
 end
