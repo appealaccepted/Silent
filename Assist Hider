@@ -1,21 +1,10 @@
-game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil message to lyk that it was executed and hidden
-	Title = "Appeal Assist Hider",
-	Text = "Assist was Hidden! Have fun!",
-	Duration = .1,
-})
+wait()
+if game:GetService("CoreGui"):FindFirstChild("Aim Assistant [2.0.0]") then
+	game:GetService("CoreGui")["Aim Assistant [2.0.0]"].MainFrame.Visible = false
+	game:GetService("CoreGui")["Aim Assistant [2.0.0]"].Circle.Visible = false
+end
 
-while task.wait() do
-	
-	if game:GetService("CoreGui"):FindFirstChild("Aim Assistant [2.0.0]") then
-		game:GetService("CoreGui")["Aim Assistant [2.0.0]"].MainFrame.Visible = false
-		game:GetService("CoreGui")["Aim Assistant [2.0.0]"].Circle.Visible = false
-		
-		task.wait()
-		
-		if game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight") then
-			game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight"):Destroy()
-		end
-		
-		
-	end
+wait()
+if game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight") then
+	game:GetService("CoreGui")["Aim Assistant [2.0.0]"]:FindFirstChild("Highlight"):Destroy()
 end
