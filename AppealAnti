@@ -1,8 +1,8 @@
 getgenv().tog = false
 getgenv().key = "c"
-getgenv().X = 100
-getgenv().Y = -100
-getgenv().Z = 100
+getgenv().X = 35
+getgenv().Y = 35
+getgenv().Z = 35
 
 game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil message to lyk that it was executed and hidden
 	Title = "Appeal.xyz",
@@ -13,15 +13,15 @@ game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil messag
 game:GetService("RunService").Heartbeat:Connect(function()
 	if getgenv().tog then
 		local vel = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
-		--local vel2 = game.Players.LocalPlayer.Character.Head.Velocity
-		--local vel3 = game.Players.LocalPlayer.Character.UpperTorso.Velocity
+		local vel2 = game.Players.LocalPlayer.Character.Head.Velocity
+		local vel3 = game.Players.LocalPlayer.Character.UpperTorso.Velocity
 		game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
-		--game.Players.LocalPlayer.Character.UpperTorso.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
-		--game.Players.LocalPlayer.Character.Head.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
+		game.Players.LocalPlayer.Character.UpperTorso.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
+		game.Players.LocalPlayer.Character.Head.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
 		game:GetService("RunService").RenderStepped:Wait()
 		game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = vel
-		--game.Players.LocalPlayer.Character.Head.Velocity = vel2
-		--game.Players.LocalPlayer.Character.UpperTorso.Velocity = vel3
+		game.Players.LocalPlayer.Character.Head.Velocity = vel2
+		game.Players.LocalPlayer.Character.UpperTorso.Velocity = vel3
 	end
 end)
 
