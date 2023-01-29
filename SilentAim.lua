@@ -60,9 +60,9 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 		if SilentAim then
 
 			for _, v in pairs(Players:GetPlayers()) do 
-				if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("UpperTorso") and v.Character:FindFirstChild("Humanoid").Health > 0 then
+				if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("Head") and v.Character:FindFirstChild("Humanoid").Health > 0 then
 					local Enemy = v.Character	
-					local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Upper].CFrame.Position) * CFrame.new(0, 0, -4) --CFrame.new(Camera.CFrame.Position, Enemy[Options.Torso].CFrame.Position) * CFrame.new(0, 0, -4)
+					local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Head].CFrame.Position) * CFrame.new(0, 0, -4) --CFrame.new(Camera.CFrame.Position, Enemy[Options.Torso].CFrame.Position) * CFrame.new(0, 0, -4)
 					local RayCast = Ray.new(CastingFrom.Position, CastingFrom.LookVector * 9000)
 					local World, ToSpace = workspace:FindPartOnRayWithIgnoreList(RayCast, {LocalPlayer.Character:FindFirstChild("Head")})
 					local RootWorld = (Enemy[Options.Upper].CFrame.Position - ToSpace).magnitude --(Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude
@@ -80,9 +80,9 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 			end
 		end
 
-		if Targete ~= nil and Targete[Options.Upper] and Targete:FindFirstChild("Humanoid").Health > 0 then
+		if Targete ~= nil and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
 			if SilentAim then
-				local ShootThis = Targete[Options.Upper] --and Targete[Options.Head] and Targete[Options.Upper]
+				local ShootThis = Targete[Options.Head] --and Targete[Options.Head] and Targete[Options.Upper]
 				local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-1,0)) --  (-1) = Less blatant
 				return ((Index == "Hit" and Predicted_Position))
 			end
