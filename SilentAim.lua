@@ -1,4 +1,4 @@
-_G.FOV =  (  25  )
+_G.FOV =  (  45  )
 
 _G.Prediction =  (  .16  )
 
