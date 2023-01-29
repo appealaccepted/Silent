@@ -1,4 +1,4 @@
-game:GetService("RunService").Heartbeat:Connect(function()
+game:GetService("RunService").RenderStepped:Connect(function()
 	getgenv().X = 0
 	getgenv().Y = 0
 	getgenv().Z = 0
