@@ -1,8 +1,8 @@
 getgenv().tog = false
 getgenv().key = "c"
-getgenv().X = 35
-getgenv().Y = 35
-getgenv().Z = 35
+getgenv().X = 55
+getgenv().Y = -5
+getgenv().Z = 55
 
 game:GetService("RunService").RenderStepped:Connect(function()
 	if getgenv().tog then
