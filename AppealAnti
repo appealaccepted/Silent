@@ -1,7 +1,7 @@
 getgenv().tog = false
 getgenv().key = "c"
 getgenv().X = 100
-getgenv().Y = -1
+getgenv().Y = -100
 getgenv().Z = 100
 
 game:GetService("StarterGui"):SetCore("SendNotification", { -- just a lil message to lyk that it was executed and hidden
