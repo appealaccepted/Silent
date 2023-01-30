@@ -3,8 +3,6 @@ game:GetService("RunService").HeartBeat:Connect(function()
 	getgenv().Y = 0
 	getgenv().Z = 0
 	
-	warn(getgenv().X, getgenv().Y, getgenv().Z)
-	
 	pcall(function()
 		for i,v in pairs(game:GetService("Players"):GetChildren()) do
 			if v.Name ~= game:GetService("Players").LocalPlayer.Name then
