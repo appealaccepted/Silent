@@ -1,8 +1,8 @@
 getgenv().tog = false
 getgenv().key = "c"
-getgenv().X = 0
+getgenv().X = 68756
 getgenv().Y = 100
-getgenv().Z = 0
+getgenv().Z = -344
 
 game:GetService("RunService").Heartbeat:Connect(function()
         if getgenv().tog then
@@ -19,12 +19,12 @@ game:GetService("Players").LocalPlayer:GetMouse().KeyDown:Connect(function(keyPr
                         if getgenv().tog == false then
                                 getgenv().tog = true
                                 game.StarterGui:SetCore("SendNotification", {
-                                        Title = "ٴٴ#8303 - Appeal.xyz",
+                                        Title = "Appeal.xyz",
                                         Text = "AA Enabled" })
                         elseif getgenv().tog == true then
                                 getgenv().tog = false
                                 game.StarterGui:SetCore("SendNotification", {
-                                        Title = "ٴٴ#8303 - Appeal.xyz",
+                                        Title = "Appeal.xyz",
                                         Text = "AA Disabled" })
                         end
                 end)
