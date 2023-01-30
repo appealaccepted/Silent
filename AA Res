@@ -1,5 +1,3 @@
-print("Ver, 1.0.0")
-
 game:GetService("RunService").HeartBeat:Connect(function()
 	getgenv().X = 0
 	getgenv().Y = 0
