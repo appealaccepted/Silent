@@ -1,8 +1,8 @@
 getgenv().tog = false
 getgenv().key = "c"
-getgenv().X = 68756
+getgenv().X = 0
 getgenv().Y = 100
-getgenv().Z = -344
+getgenv().Z = 0
 
 game:GetService("RunService").Heartbeat:Connect(function()
         if getgenv().tog then
