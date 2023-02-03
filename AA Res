@@ -8,11 +8,11 @@ RunService.Heartbeat:Connect(function()
 	       local Head = v.Charcater.Head
 	       local Upper = v.Character.UpperTorso
                hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
-               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, hrp.Velocity.Y, 0)
+               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y, 0)
 	       Head.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
-               Head.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, hrp.Velocity.Y, 0)
+               Head.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y, 0)
 	       Upper.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
-               Upper.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, hrp.Velocity.Y, 0)
+               Upper.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, 0, hrp.Velocity.Y, 0)
            end
        end
    end)
