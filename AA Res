@@ -1,35 +1,19 @@
-game:GetService("RunService").Heartbeat:Connect(function()
-	getgenv().X = 0
-	getgenv().Y = 0
-	getgenv().Z = 0
-	
-	pcall(function()
-		for i,v in pairs(game:GetService("Players"):GetChildren()) do
-			if v.Name ~= game:GetService("Players").LocalPlayer.Name then
-				local hrp = v.Character.HumanoidRootPart
-				hrp.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
-				hrp.AssemblyLinearVelocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
-			end
-		end
-	end)
-	
-	pcall(function()
-		for i,v in pairs(game:GetService("Players"):GetChildren()) do
-			if v.Name ~= game:GetService("Players").LocalPlayer.Name then
-				local Upper = v.Character.UpperTorso
-				Upper.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
-				Upper.AssemblyLinearVelocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
-			end
-		end
-	end)
-	
-	pcall(function()
-		for i,v in pairs(game:GetService("Players"):GetChildren()) do
-			if v.Name ~= game:GetService("Players").LocalPlayer.Name then
-				local Head = v.Character.Head
-				Head.Velocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
-				Head.AssemblyLinearVelocity = Vector3.new(getgenv().X, getgenv().Y, getgenv().Z)
-			end
-		end
-	end)
+local RunService = game:GetService("RunService")
+
+RunService.Heartbeat:Connect(function()
+   pcall(function()
+       for i,v in pairs(game.Players:GetChildren()) do
+           if v.Name ~= game.Players.LocalPlayer.Name then
+               local hrp = v.Character.HumanoidRootPart
+	       local Head = v.Charcater.Head
+	       local Upper = v.Character.UpperTorso
+               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, hrp.Velocity.Y, 0)
+	       Head.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               Head.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, hrp.Velocity.Y, 0)
+	       Upper.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               Upper.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z, hrp.Velocity.Y, 0)
+           end
+       end
+   end)
 end)
