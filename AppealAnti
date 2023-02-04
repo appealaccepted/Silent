@@ -1,7 +1,7 @@
 getgenv().tog = false
 getgenv().key = "c"
-getgenv().X = 100
-getgenv().Y = -1
+getgenv().X = -73
+getgenv().Y = 0
 getgenv().Z = 5432
 
 game:GetService("RunService").Heartbeat:Connect(function()
