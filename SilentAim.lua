@@ -59,14 +59,14 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 		if SilentAim then
 
 			for _, v in pairs(Players:GetPlayers()) do 
-				if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Head") and v.Character:FindFirstChild("UpperTorso") and v.Character:FindFirstChild("Humanoid").Health > 0 then
+				if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("UpperTorso") and v.Character:FindFirstChild("Humanoid").Health > 0 then
 					local Enemy = v.Character	
-					local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Torso].CFrame.Position) * CFrame.new(0, 0, -4), CFrame.new(Camera.CFrame.Position, Enemy[Options.Head].CFrame.Position) * CFrame.new(0, 0, -4)
+					local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Torso].CFrame.Position) * CFrame.new(0, 0, -4)
 					local RayCast = Ray.new(CastingFrom.Position, CastingFrom.LookVector * 9000)
 					local World, ToSpace = workspace:FindPartOnRayWithIgnoreList(RayCast, {LocalPlayer.Character:FindFirstChild("Head")})
-					local RootWorld = (Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude, (Enemy[Options.Head].CFrame.Position - ToSpace).magnitude
+					local RootWorld = (Enemy[Options.Torso].CFrame.Position - ToSpace).magnitude
 					if RootWorld < 4 then
-							local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Torso].Position), Camera:WorldToScreenPoint(Enemy[Options.Head].Position)
+							local RootPartPosition, Visible = Camera:WorldToScreenPoint(Enemy[Options.Torso].Position)
 						if Visible then
 							local Real_Magnitude = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(RootPartPosition.X, RootPartPosition.Y)).Magnitude
 							if Real_Magnitude < Distance and Real_Magnitude < FOV_CIRCLE.Radius then
@@ -79,9 +79,9 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 			end
 		end
 
-		if Targete ~= nil and Targete[Options.Torso] and Targete[Options.Head] and Targete:FindFirstChild("Humanoid").Health > 0 then
+		if Targete ~= nil and Targete[Options.Torso] and Targete:FindFirstChild("Humanoid").Health > 0 then
 			if SilentAim then
-				local ShootThis = Targete[Options.Torso] and Targete[Options.Head] --and Targete[Options.Upper] --or Targete[Options.Upper] --and Targete[Options.Head] and Targete[Options.Upper]
+				local ShootThis = Targete[Options.Torso] --and Targete[Options.Upper] --or Targete[Options.Upper] --and Targete[Options.Head] and Targete[Options.Upper]
 				local Predicted_Position = ShootThis.CFrame + (ShootThis.Velocity * _G.Prediction + Vector3.new(0,-0,0)) --  (-1) = Less blatant
 				return ((Index == "Hit" and Predicted_Position))
 			end
