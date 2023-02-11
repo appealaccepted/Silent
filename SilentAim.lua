@@ -91,4 +91,6 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 	return oldIndex(self, Index)
 end)
 
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/AA%20Res"), true))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"), true))()
+wait(5)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"), true))()
