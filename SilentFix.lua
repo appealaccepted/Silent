@@ -4,9 +4,11 @@ RunService.Heartbeat:Connect(function()
    pcall(function()
        for i,v in pairs(game.Players:GetChildren()) do
            if v.Name ~= game.Players.LocalPlayer.Name then
-               local hrp = v.Character.HumanoidRootPart
-               hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
-               hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
+               --local hrp = v.Character.HumanoidRootPart
+               old_vel = v.Character.HumanoidRootPart.Velocity
+               local Y = -0
+               v.Character.HumanoidRootPart.Velocity = Vector3.new(old_vel.X, Y, old_vel.Z)    
+               v.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(old_vel.X, Y, old_vel.Z)  
            end
        end
    end)
