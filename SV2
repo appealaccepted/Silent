@@ -60,7 +60,7 @@ oldIndex = hookmetamethod(game, "__index", function(self, Index)
 			for _, v in pairs(Players:GetPlayers()) do 
 				if v ~= LocalPlayer and v.Character and v.Character:FindFirstChild("UpperTorso") and v.Character:FindFirstChild("Humanoid").Health > 0 then
 					local Enemy = v.Character	
-					local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Upper].CFrame.Position) * CFrame.new(0, 0, -2)
+					local CastingFrom = CFrame.new(Camera.CFrame.Position, Enemy[Options.Upper].CFrame.Position) * CFrame.new(0, 0, -4)
 					local RayCast = Ray.new(CastingFrom.Position, CastingFrom.LookVector * 9000)
 					local World, ToSpace = workspace:FindPartOnRayWithIgnoreList(RayCast, {LocalPlayer.Character:FindFirstChild("Head")})
 					local RootWorld = (Enemy[Options.Upper].CFrame.Position - ToSpace).magnitude
