@@ -22,25 +22,25 @@ FOV_CIRCLE.Radius = _G.FOV
 FOV_CIRCLE.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
 
 Options = {
-"Head";
-"UpperTorso";
-"HumanoidRootPart";
-"LowerTorso";
-"LeftHand";
-"RightHand";
-"LeftLowerArm";
-"RightLowerArm";
-"LeftUpperArm";
-"RightUpperArm";
-"LeftFoot";
-"LeftLowerLeg";
-"LeftUpperLeg";
-"RightLowerLeg";
-"RightFoot";
-"RightUpperLeg";
+	"Head";
+	"UpperTorso";
+	"HumanoidRootPart";
+	"LowerTorso";
+	"LeftHand";
+	"RightHand";
+	"LeftLowerArm";
+	"RightLowerArm";
+	"LeftUpperArm";
+	"RightUpperArm";
+	"LeftFoot";
+	"LeftLowerLeg";
+	"LeftUpperLeg";
+	"RightLowerLeg";
+	"RightFoot";
+	"RightUpperLeg";
 }
 
--- print(Options) \\ -- testing -- //
+print(Options) \\ -- testing -- //
 
 local function MoveFovCircle()
 	pcall(function()
