@@ -1,6 +1,6 @@
---if not game:IsLoaded() then
-    --game.Loaded:Wait()
---end
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 
 local Settings = {
     Silent = {
@@ -11,7 +11,7 @@ local Settings = {
     },
     FOV = {
         Visible = false,
-        Radius = 15.5
+        Radius = 16
     }
 }
 
