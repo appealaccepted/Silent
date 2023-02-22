@@ -1,12 +1,12 @@
-if not game:IsLoaded() then
-    game.Loaded:Wait()
-end
+--if not game:IsLoaded() then
+    --game.Loaded:Wait()
+--end
 
 local Settings = {
     Silent = {
         Enabled = true,
         Part = "HumanoidRootPart",
-        Pred = 0.119,
+        Pred = 0.16, --0.119,
         ClosestPart = true,
     },
     FOV = {
@@ -93,7 +93,7 @@ end
 
 local Prey
 
-task.spawn(function ()
+task.spawn(function()
     while task.wait() do
         if Prey then
             if Settings.Silent.Enabled and Settings.Silent.ClosestPart == true then
@@ -123,7 +123,3 @@ grmt.__index = newcclosure(function(self, v)
 end)
 
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/ViewerBypass"), true))()
-wait(1)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"), true))()
-wait(5)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"), true))()
