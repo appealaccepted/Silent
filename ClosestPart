@@ -121,8 +121,9 @@ grmt.__index = newcclosure(function(self, v)
     end
     return backupindex(self, v)
 end)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/FullResolver"), true))() -- Desync (WIP, but works), UnderGround, Sky(WIP, works tho)
 
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/FullResolver"), true))() -- Desync (WIP, but works), UnderGround, Sky(WIP, works tho)
+wait(1)
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/ViewerBypass"), true))()
 wait(1)
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"), true))()
