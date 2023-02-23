@@ -120,8 +120,15 @@ grmt.__index = newcclosure(function(self, v)
         end
     end
     return backupindex(self, v)
-    
-    local RunService = game:GetService("RunService")
+end)
+
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/ViewerBypass"), true))()
+wait(1)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"), true))()
+wait(5)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"), true))()
+
+local RunService = game:GetService("RunService")
 
 RunService.Heartbeat:Connect(function()
    pcall(function()
@@ -189,10 +196,3 @@ RunService.Heartbeat:Connect(function()
        end
    end)
 end)
-end)
-
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/ViewerBypass"), true))()
-wait(1)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"), true))()
-wait(5)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"), true))()
