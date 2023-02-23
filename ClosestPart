@@ -2,12 +2,6 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/ViewerBypass"), true))()
-wait(1)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"), true))()
-wait(5)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"), true))()
-
 local Settings = {
     Silent = {
         Enabled = true,
@@ -127,6 +121,12 @@ grmt.__index = newcclosure(function(self, v)
     end
     return backupindex(self, v)
 end)
+
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/ViewerBypass"), true))()
+wait(1)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"), true))()
+wait(5)
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"), true))()
 
 RS.Heartbeat:Connect(function()
    pcall(function()
