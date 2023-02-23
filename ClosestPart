@@ -11,7 +11,7 @@ local Settings = {
     },
     FOV = {
         Visible = false,
-        Radius = 15.5
+        Radius = 16
     }
 }
 
@@ -121,8 +121,7 @@ grmt.__index = newcclosure(function(self, v)
     end
     return backupindex(self, v)
 end)
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/FullResolver"), true))()
-wait(1)
+
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/ViewerBypass"), true))()
 wait(1)
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"), true))()
