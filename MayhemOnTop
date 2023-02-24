@@ -98,6 +98,10 @@ task.spawn(function ()
         if Prey then
             if Settings.Silent.Enabled and Settings.Silent.ClosestPart == true then
                 Settings.Silent["Part"] = tostring(GetClosestBodyPart(Prey.Character))
+                
+                local oldVel = game.Players[Aiming.Selected.Name].Character.HumanoidRootPart.Velocity
+                
+                Settings.Silent["Part"] = Vector3.new(oldVel.X, -0, oldVel.Z)
             end
         end
     end
@@ -111,12 +115,10 @@ grmt.__index = newcclosure(function(self, v)
     if (Settings.Silent.Enabled and Mouse and tostring(v) == "Hit") then
 
         Prey = ClosestPlrFromMouse()
-        local oldVel = game.Players[Aiming.Selected.Name].Character.HumanoidRootPart.Velocity
 
         if Prey then
             local endpoint = game.Players[tostring(Prey)].Character[Settings.Silent["Part"]].CFrame + (
                 game.Players[tostring(Prey)].Character[Settings.Silent["Part"]].Velocity * Settings.Silent.Pred
-                game.Players[tostring(Prey)].Character[Settings.Silent["Part"]].Velocity = Vector3.new(oldVel.X, -0, oldVel.Z)
             )
             return (tostring(v) == "Hit" and endpoint)
         end
