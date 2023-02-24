@@ -10,7 +10,7 @@ local Settings = {
         ClosestPart = true,
     },
     FOV = {
-        Visible = true,
+        Visible = false,
         Radius = 16
     }
 }
