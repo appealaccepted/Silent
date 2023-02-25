@@ -11,7 +11,7 @@ local Settings = {
     },
     FOV = {
         Visible = false,
-        Radius = 16
+        Radius = 15.5
     }
 }
 
@@ -99,7 +99,7 @@ task.spawn(function ()
             if Settings.Silent.Enabled and Settings.Silent.ClosestPart == true then
                 Settings.Silent["Part"] = tostring(GetClosestBodyPart(Prey.Character))
                 
-                local oldVel = Settings.Silent["Part"]
+                local oldVel = Settings.Silent["Part"].Velocity
                 
                 Settings.Silent["Part"] = Vector3.new(oldVel.X, -0, oldVel.Z)
             end
