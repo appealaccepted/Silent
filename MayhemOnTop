@@ -99,7 +99,7 @@ task.spawn(function ()
             if Settings.Silent.Enabled and Settings.Silent.ClosestPart == true then
                 Settings.Silent["Part"] = tostring(GetClosestBodyPart(Prey.Character))
                 
-                local old_vel = Settings.Silent["Part"].Velocity and Settings.Silent["Part"].AssemblyLinearVelocity
+                local old_vel = Settings.Silent["Part"]
                 
                v.Character.HumanoidRootPart.Velocity = Vector3.new(old_vel, -0, old_vel)    
                v.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(old_vel, -0, old_vel)
