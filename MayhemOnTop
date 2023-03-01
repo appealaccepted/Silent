@@ -11,7 +11,7 @@ local Settings = {
     },
     FOV = {
         Visible = false,
-        Radius = 15.5
+        Radius = 15
     }
 }
 
