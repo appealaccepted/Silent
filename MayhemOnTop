@@ -105,6 +105,10 @@ task.spawn(function ()
                
                 local Z = -0
                 
+                if Settings.Silent["Part"].Velocity >= -0 or Settings.Silent["Part"].Velocity <= 0 then
+                    Settings.Silent["Part"].Velocity = X,Y,Z
+                end
+                
                 Settings.Silent["Part"].Velocity = Vector3.new(X, Y, Z)
             end
         end
