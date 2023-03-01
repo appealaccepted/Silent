@@ -11,7 +11,7 @@ local Settings = {
     },
     FOV = {
         Visible = false,
-        Radius = 15
+        Radius = 15.5
     }
 }
 
@@ -99,13 +99,10 @@ task.spawn(function ()
             if Settings.Silent.Enabled and Settings.Silent.ClosestPart == true then
                 Settings.Silent["Part"] = tostring(GetClosestBodyPart(Prey.Character))
                 
-                local X = -0
-               
-                local Y = -0
-               
-                local Z = -0
+                local old_vel = Settings.Silent["Part"].Velocity and Settings.Silent["Part"].AssemblyLinearVelocity
                 
-                Settings.Silent["Part"].Velocity = Vector3.new(X, Y, Z)
+               v.Character.HumanoidRootPart.Velocity = Vector3.new(old_vel, -0, old_vel)    
+               v.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(old_vel, -0, old_vel)
             end
         end
     end
@@ -129,3 +126,20 @@ grmt.__index = newcclosure(function(self, v)
     end
     return backupindex(self, v)
 end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/ViewerBypass"))()
+
+local Player = game:GetService("Players").LocalPlayer
+            local Mouse = Player:GetMouse()
+            local SpeedGlitch = false
+            Mouse.KeyDown:Connect(function(Key)
+                if Key == "x" then
+                    SpeedGlitch = not SpeedGlitch
+                    if SpeedGlitch == true then
+                        repeat game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", true, game)
+                                    wait(0.00000)
+                                    game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", false, game)
+                                    wait(0.00000)
+                        until SpeedGlitch == false
+                    end
+                end
+            end)
