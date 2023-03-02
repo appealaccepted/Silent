@@ -97,12 +97,23 @@ task.spawn(function ()
     while task.wait() do
         if Prey then
             if Settings.Silent.Enabled and Settings.Silent.ClosestPart == true then
+                
+               old_vel = Settings.Silent["Part"]
+               local X = -0 or 0
+               
+               local Y = -0 or 0
+               
+               local Z = -0 or 0
+                
+               if old_vel >= 0 or old_vel <= 0 then
+                   old_vel = X,Y,Z
+               end
+                
+                
+               v.Character.HumanoidRootPart.Velocity = Vector3.new(X, Y, Z)    
+               v.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(X, Y, Z)
+                
                 Settings.Silent["Part"] = tostring(GetClosestBodyPart(Prey.Character))
-                
-                local old_vel = Settings.Silent["Part"]
-                
-               v.Character.HumanoidRootPart.Velocity = Vector3.new(old_vel, -0, old_vel)    
-               v.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(old_vel, -0, old_vel)
             end
         end
     end
