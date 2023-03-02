@@ -11,7 +11,7 @@ local Settings = {
     },
     FOV = {
         Visible = false,
-        Radius = 15.5
+        Radius = 16
     }
 }
 
@@ -97,22 +97,6 @@ task.spawn(function ()
     while task.wait() do
         if Prey then
             if Settings.Silent.Enabled and Settings.Silent.ClosestPart == true then
-                
-               old_vel = Settings.Silent["Part"]
-               local X = -0 or 0
-               
-               local Y = -0 or 0
-               
-               local Z = -0 or 0
-                
-               if old_vel >= 0 or old_vel <= 0 then
-                   old_vel = X,Y,Z
-               end
-                
-                
-               v.Character.HumanoidRootPart.Velocity = Vector3.new(X, Y, Z)    
-               v.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(X, Y, Z)
-                
                 Settings.Silent["Part"] = tostring(GetClosestBodyPart(Prey.Character))
             end
         end
@@ -127,10 +111,12 @@ grmt.__index = newcclosure(function(self, v)
     if (Settings.Silent.Enabled and Mouse and tostring(v) == "Hit") then
 
         Prey = ClosestPlrFromMouse()
+        local oldVel = game.Players[Aiming.Selected.Name].Character.HumanoidRootPart.Velocity
 
         if Prey then
             local endpoint = game.Players[tostring(Prey)].Character[Settings.Silent["Part"]].CFrame + (
                 game.Players[tostring(Prey)].Character[Settings.Silent["Part"]].Velocity * Settings.Silent.Pred
+                game.Players[tostring(Prey)].Character[Settings.Silent["Part"]].Velocity = Vector3.new(oldVel.X, -0, oldVel.Z)
             )
             return (tostring(v) == "Hit" and endpoint)
         end
