@@ -33,7 +33,7 @@ local Settings = {
         PingSpoofer = true,
         PingTabColor = Color3.fromRGB(211, 88, 33),
         PingMost = 2000,
-        PingLeast = 1000
+        PingLeast = 5,
      }
 }
 
@@ -144,101 +144,67 @@ grmt.__index = newcclosure(function(self, v)
     return backupindex(self, v)
 end)
 
-game:GetService("UserInputService").InputBegan:Connect(
-    function(keyinput, stupid)
-        if
-            keyinput.KeyCode == Settings.Resolver.UnderGroundKey and Settings.Enabled == true and
-                Settings.Resolver.UseUnderGroundKeybind == true
-         then
-            if Settings.Resolver.UnderGround == true then
-                Settings.Resolver.UnderGround = false
-                if Settings.Resolver.SendNotification then
-                    game.StarterGui:SetCore(
-                        "SendNotification",
-                        {
-                            Title = "Mayhem V1",
-                            Text = "Disabled UnderGround Resolver",
-                            Icon = "",
-                            Duration = 1
-                        }
-                    )
-                end
-            else
-                Settings.Resolver.UnderGround = true
-                if Settings.Resolver.SendNotification then
-                    game.StarterGui:SetCore(
-                        "SendNotification",
-                        {
-                            Title = "Mayhem V1",
-                            Text = "Enabled UnderGround Resolver",
-                            Icon = "",
-                            Duration = 1
-                        }
-                    )
-                end
-            end
-        end
-    end
-)
- 
-game:GetService("UserInputService").InputBegan:Connect(
-    function(keyinput, stupid)
-        if
-            keyinput.KeyCode == Settings.Resolver.DetectDesyncKey and Settings.Enabled == true and
-                Settings.Resolver.UseDetectDesyncKeybind == true
-         then
-            if Settings.Resolver.DetectDesync == true then
-                Settings.Resolver.DetectDesync = false
-                if Settings.Resolver.SendNotification then
-                    game.StarterGui:SetCore(
-                        "SendNotification",
-                        {
-                            Title = "Mayhem V1",
-                            Text = "Disabled Desync Resolver",
-                            Icon = "",
-                            Duration = 1
-                        }
-                    )
-                end
-            else
-                Settings.Resolver.DetectDesync = true
-                if Settings.Resolver.SendNotification then
-                    game.StarterGui:SetCore(
-                        "SendNotification",
-                        {
-                            Title = "Mayhem V1",
-                            Text = "Enabled Desync Resolver",
-                            Icon = "",
-                            Duration = 1
-                        }
-                    )
-                end
-            end
-        end
-    end
-)
-if Settings.Resolver.UnderGround == true and Settings["Part"] then
-                pcall(
-                    function()
-                        local TargetVelv2 = Settings["Part"]
-                        TargetVelv2.Velocity = Vector3.new(TargetVelv2.Velocity.X, 0, TargetVelv2.Velocity.Z)
-                        TargetVelv2.AssemblyLinearVelocity = Vector3.new(TargetVelv2.Velocity.X, 0, TargetVelv2.Velocity.Z)
-                    end
-                )
-            end
-            if
-                Settings.Resolver.DetectDesync == true and Settings["Part"] and
-                    Settings["Part"].Velocity.magnitude >
-                        Settings.Resolver.Detection
-             then
-                pcall(
-                    function()
-                        local TargetVel = Settings["Part"]
-                        TargetVel.Velocity = Vector3.new(0, 0, 0)
-                        TargetVel.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
-                    end
-                )
-            end
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(keyinput, stupid)
+	if keyinput.KeyCode == Settings.Resolver.UnderGroundKey and Settings.Enabled == true and Settings.Resolver.UseUnderGroundKeybind == true then
+		if Settings.Resolver.UnderGround == true then
+			Settings.Resolver.UnderGround = false
+			if Settings.Resolver.SendNotification then
+				game:GetService("StarterGui"):SetCore(
+					"SendNotification",
+				{
+					Title = "Mayhem V1",
+					Text = "Disabled UnderGround Resolver",
+					Duration = 0.5
+				}
+				)
+			end
+		else
+			Settings.Resolver.UnderGround = true
+			if Settings.Resolver.SendNotification then
+				game:GetService("StarterGui"):SetCore(
+					"SendNotification",
+				{
+					Title = "Mayhem V1",
+					Text = "Enabled UnderGround Resolver",
+					Duration = 0.5
+				}
+				)
+			end
+		end
+	end
+end)
+
+UIS.InputBegan:Connect(function(keyinput, stupid)
+	if keyinput.KeyCode == Settings.Resolver.DetectDesyncKey and Settings.Enabled == true and Settings.Resolver.UseDetectDesyncKeybind == true then
+		if Settings.Resolver.DetectDesync == true then
+			Settings.Resolver.DetectDesync = false
+			if Settings.Resolver.SendNotification then
+				game:GetService("StarterGui"):SetCore(
+					"SendNotification",
+				{
+					Title = "Mayhem V1",
+					Text = "Disabled Desync Resolver",
+					Duration = 0.5
+				}
+			)
+			end
+		else
+			Settings.Resolver.DetectDesync = true
+			if Settings.Resolver.SendNotification then
+				game:GetService("StarterGui"):SetCore(
+					"SendNotification",
+				{
+					Title = "Mayhem V1",
+					Text = "Enabled Desync Resolver",
+					Duration = 0.5
+				}
+			)
+			end
+		end
+	end
+end)
 
             local PerformanceStats = game:GetService("CoreGui"):WaitForChild("RobloxGui"):WaitForChild("PerformanceStats")
  
