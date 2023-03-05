@@ -156,7 +156,8 @@ UIS.InputBegan:Connect(function(keyinput, stupid)
 				{
 					Title = "Mayhem V1",
 					Text = "Disabled UnderGround Resolver",
-					Duration = 0.5
+					Icon = "rbxassetid://0",
+					Duration = 1
 				}
 				)
 			end
@@ -168,7 +169,8 @@ UIS.InputBegan:Connect(function(keyinput, stupid)
 				{
 					Title = "Mayhem V1",
 					Text = "Enabled UnderGround Resolver",
-					Duration = 0.5
+					Icon = "rbxassetid://0",
+					Duration = 1
 				}
 				)
 			end
@@ -186,7 +188,8 @@ UIS.InputBegan:Connect(function(keyinput, stupid)
 				{
 					Title = "Mayhem V1",
 					Text = "Disabled Desync Resolver",
-					Duration = 0.5
+					Icon = "rbxassetid://0",
+					Duration = 1
 				}
 			)
 			end
@@ -198,7 +201,8 @@ UIS.InputBegan:Connect(function(keyinput, stupid)
 				{
 					Title = "Mayhem V1",
 					Text = "Enabled Desync Resolver",
-					Duration = 0.5
+					Icon = "rbxassetid://0",
+					Duration = 1
 				}
 			)
 			end
