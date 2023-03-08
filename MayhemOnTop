@@ -2,8 +2,6 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-
 local Settings = {
     Silent = {
         Enabled = true,
@@ -134,138 +132,21 @@ grmt.__index = newcclosure(function(self, v)
     end
     return backupindex(self, v)
 end)
-local PerformanceStats = game:GetService("CoreGui"):WaitForChild("RobloxGui"):WaitForChild("PerformanceStats")
- 
-local MemLabel
-            local color,
-                color1,
-                color2,
-                color3,
-                color4,
-                color5,
-                color6,
-                color7,
-                color8,
-                color9,
-                color10,
-                color11,
-                color12,
-                color13,
-                color14,
-                color15,
-                color16,
-                color17,
-                color18,
-                color19
-            for I, Child in next, PerformanceStats:GetChildren() do
-                if Child.StatsMiniTextPanelClass.TitleLabel.Text == "Mem" then
-                    MemLabel = Child.StatsMiniTextPanelClass.ValueLabel
-                    color = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_0
-                    color1 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_1
-                    color2 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_2
-                    color3 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_3
-                    color4 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_4
-                    color5 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_5
-                    color6 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_6
-                    color7 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_7
-                    color8 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_8
-                    color9 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_9
-                    color10 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_10
-                    color11 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_11
-                    color12 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_12
-                    color13 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_13
-                    color14 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_14
-                    color15 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_15
-                    color16 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_16
-                    color17 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_17
-                    color18 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_18
-                    color19 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_19
-                    break
-                end
-            end
-            MemLabel:GetPropertyChangedSignal("Text"):Connect(
-                function()
-                    if Settings.Spoofer.MemorySpoofer == true then
-                        MemLabel.Text = math.random(Settings.Spoofer.MemoryLeast, Settings.Spoofer.MemoryMost) / 100 .. " MB"
-                        color.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color1.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color2.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color3.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color4.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color5.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color6.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color7.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color8.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color9.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color10.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color11.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color12.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color13.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color14.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color15.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color16.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color17.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color18.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
-                        color19.BackgroundColor3 = Settings.Spoofer.MemoryTabColor
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+
+local Player = game:GetService("Players").LocalPlayer
+            local Mouse = Player:GetMouse()
+            local SpeedGlitch = false
+            Mouse.KeyDown:Connect(function(Key)
+                if Key == "x" then
+                    SpeedGlitch = not SpeedGlitch
+                    if SpeedGlitch == true then
+                        repeat game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", true, game)
+                                    wait(0.00000)
+                                    game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", false, game)
+                                    wait(0.00000)
+                        until SpeedGlitch == false
                     end
                 end
-            )
-             
-            local PingLabel
-            for I, Child in next, PerformanceStats:GetChildren() do
-                if Child.StatsMiniTextPanelClass.TitleLabel.Text == "Ping" then
-                    PingLabel = Child.StatsMiniTextPanelClass.ValueLabel
-                    color = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_0
-                    color1 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_1
-                    color2 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_2
-                    color3 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_3
-                    color4 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_4
-                    color5 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_5
-                    color6 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_6
-                    color7 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_7
-                    color8 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_8
-                    color9 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_9
-                    color10 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_10
-                    color11 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_11
-                    color12 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_12
-                    color13 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_13
-                    color14 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_14
-                    color15 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_15
-                    color16 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_16
-                    color17 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_17
-                    color18 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_18
-                    color19 = Child.PS_AnnotatedGraph.PS_BarFrame.Bar_19
-                    break
-                end
-            end
-            PingLabel:GetPropertyChangedSignal("Text"):Connect(
-                function()
-                    if Settings.Spoofer.PingSpoofer == true then
-                        local textrandom = math.random(Settings.Spoofer.PingLeast, Settings.Spoofer.PingMost) / 100
-                        PingLabel.Text = textrandom .. " ms"
-                        color.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color1.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color2.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color3.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color4.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color5.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color6.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color7.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color8.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color9.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color10.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color11.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color12.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color13.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color14.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color15.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color16.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color17.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color18.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        color19.BackgroundColor3 = Settings.Spoofer.PingTabColor
-                        if game.PlaceId == 9825515356 then
-                            game:GetService("ReplicatedStorage").MainEvent:FireServer("GetPing", textrandom)
-                        end
-                    end
-                end
-            )
+            end)
