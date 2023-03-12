@@ -1,6 +1,31 @@
 local RunService = game:GetService("RunService")
 
 local function zeroOutYVelocity(hrp)
+
+RunService.Heartbeat:Connect(function()
+   pcall(function()
+       for i,v in pairs(game.Players:GetChildren()) do
+           if v.Name ~= game.Players.LocalPlayer.Name then
+               --local hrp = v.Character.HumanoidRootPart
+               old_vel = v.Character.HumanoidRootPart.Velocity
+               local X = -0 or 0 or 1
+               
+                local Y = -0 or 0 or 1
+               
+                local Z = -0 or 0 or 1
+                
+                if old_vel >= 0 or old_vel <= 0 then
+                    old_vel = X,Y,Z
+                end
+                
+                
+               v.Character.HumanoidRootPart.Velocity = Vector3.new(X, Y, Z)    
+               v.Character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(X, Y, Z)
+           end
+       end
+   end)
+end)
+
     hrp.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)
     hrp.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)
 end
