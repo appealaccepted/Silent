@@ -134,6 +134,9 @@ grmt.__index = newcclosure(function(self, v)
 end)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"))()
+wait(5)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"))()
 
 local Player = game:GetService("Players").LocalPlayer
             local Mouse = Player:GetMouse()
