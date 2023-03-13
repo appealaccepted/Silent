@@ -11,18 +11,18 @@ local Settings = {
     },
     FOV = {
         Visible = false,
-        Radius = 15.5
+        Radius = 6 -- old is 15.5 6 is for star aim
     },
      Spoofer = {
         MemorySpoofer = true,
         MemoryTabColor = Color3.fromRGB(211, 88, 33),
-        MemoryMost = 85000,
-        MemoryLeast = 80000,
+        MemoryMost = 0,
+        MemoryLeast = 0,
  
         PingSpoofer = true,
         PingTabColor = Color3.fromRGB(211, 88, 33),
-        PingMost = 2000,
-        PingLeast = 5,
+        PingMost = 0,
+        PingLeast = 0,
      }
 }
 
