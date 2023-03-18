@@ -2,6 +2,61 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
+local RunService = game:GetService("RunService")
+
+local function zeroOutYVelocity(hrp)
+
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+    if v.Name ~= game:GetService("Players").LocalPlayer.Name then
+        old_vel = v.Character.HumanoidRootPart.Velocity
+
+        local X = -0
+        local Y = -0
+        local Z = -0
+
+        if old_vel ~= 0 or old_vel ~= -0 or old_vel ~= 0 then
+            
+            old_vel = X,Y,Z
+
+        end
+
+
+    end
+end
+
+    local X = -0
+    local Y = -0
+    local Z = -0
+
+    hrp.Velocity = Vector3.new(X, Y, Z)
+    hrp.AssemblyLinearVelocity = Vector3.new(X, Y, Z)
+end
+
+local function onPlayerAdded(player)
+    player.CharacterAdded:Connect(function(character)
+        local hrp = character:WaitForChild("HumanoidRootPart")
+        zeroOutYVelocity(hrp)
+    end)
+end
+
+local function onPlayerRemoving(player)
+    player.CharacterAdded:Disconnect()
+end
+
+game.Players.PlayerAdded:Connect(onPlayerAdded)
+game.Players.PlayerRemoving:Connect(onPlayerRemoving)
+
+RunService.Heartbeat:Connect(function()
+    pcall(function()
+        for i, player in pairs(game.Players:GetChildren()) do
+            if player.Name ~= game.Players.LocalPlayer.Name then
+                local hrp = player.Character.HumanoidRootPart
+                zeroOutYVelocity(hrp)
+            end
+        end
+    end)
+end)
+
 local Settings = {
     Silent = {
         Enabled = true,
@@ -12,18 +67,7 @@ local Settings = {
     FOV = {
         Visible = false,
         Radius = 15.5
-    },
-     Spoofer = {
-        MemorySpoofer = true,
-        MemoryTabColor = Color3.fromRGB(211, 88, 33),
-        MemoryMost = 0,
-        MemoryLeast = 0,
- 
-        PingSpoofer = true,
-        PingTabColor = Color3.fromRGB(211, 88, 33),
-        PingMost = 0,
-        PingLeast = 0,
-     }
+    }
 }
 
 local Players, Client, Mouse, RS, Camera =
@@ -133,61 +177,6 @@ grmt.__index = newcclosure(function(self, v)
     return backupindex(self, v)
 end)
 
-local RunService = game:GetService("RunService")
-
-local function zeroOutYVelocity(hrp)
-
-for i,v in pairs(game:GetService("Players"):GetChildren()) do
-    if v.Name ~= game:GetService("Players").LocalPlayer.Name then
-        old_vel = v.Character.HumanoidRootPart.Velocity
-
-        local X = 0
-        local Y = 0
-        local Z = 0
-
-        if old_vel.X ~= 0 or old_vel.Y ~= 0 or old_vel.Z ~= 0 then
-            
-            old_vel = X,Y,Z
-
-        end
-
-
-    end
-end
-
-    local X = 0
-    local Y = 0
-    local Z = 0
-
-    hrp.Velocity = Vector3.new(X, Y, Z)
-    hrp.AssemblyLinearVelocity = Vector3.new(X, Y, Z)
-end
-
-local function onPlayerAdded(player)
-    player.CharacterAdded:Connect(function(character)
-        local hrp = character:WaitForChild("HumanoidRootPart")
-        zeroOutYVelocity(hrp)
-    end)
-end
-
-local function onPlayerRemoving(player)
-    player.CharacterAdded:Disconnect()
-end
-
-game.Players.PlayerAdded:Connect(onPlayerAdded)
-game.Players.PlayerRemoving:Connect(onPlayerRemoving)
-
-RunService.Heartbeat:Connect(function()
-    pcall(function()
-        for i, player in pairs(game.Players:GetChildren()) do
-            if player.Name ~= game.Players.LocalPlayer.Name then
-                local hrp = player.Character.HumanoidRootPart
-                zeroOutYVelocity(hrp)
-            end
-        end
-    end)
-end)
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"))()
 wait(5)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"))()
@@ -196,7 +185,7 @@ local Player = game:GetService("Players").LocalPlayer
             local Mouse = Player:GetMouse()
             local SpeedGlitch = false
             Mouse.KeyDown:Connect(function(Key)
-                if Key == "x" then
+                if Key == "z" then
                     SpeedGlitch = not SpeedGlitch
                     if SpeedGlitch == true then
                         repeat game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", true, game)
