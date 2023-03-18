@@ -2,11 +2,6 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-local RS = game:GetService("RunService")
-Rs.Heartbeat:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-end
-
 local Settings = {
     Silent = {
         Enabled = true,
@@ -130,6 +125,11 @@ end)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"))()
 wait(5)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"))()
+
+local RS = game:GetService("RunService")
+Rs.Heartbeat:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+end
 
 local Player = game:GetService("Players").LocalPlayer
             local Mouse = Player:GetMouse()
