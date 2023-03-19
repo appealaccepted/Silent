@@ -1,5 +1,6 @@
 if not game:IsLoaded() then
     game.Loaded:Wait()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
 end
 
 local Settings = {
@@ -125,7 +126,6 @@ end)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"))()
 wait(5)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist%20Hider"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
 
 local Player = game:GetService("Players").LocalPlayer
             local Mouse = Player:GetMouse()
