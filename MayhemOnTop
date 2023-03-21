@@ -122,7 +122,31 @@ grmt.__index = newcclosure(function(self, v)
     return backupindex(self, v)
 end)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+local function get_calculated_velocity(obj)
+    if nil_check(obj) and obj.Character and obj.Character:FindFirstChild(Settings.Silent["Part"]) then
+        local root = obj.Character.HumanoidRootPart
+        local character = obj.Character 
+
+        local currentPosition = root.Position
+        local currentTime = tick()
+
+        wait(0.00350) 
+
+        local newPosition = root.Position
+        local newTime = tick()
+        
+        local distanceTraveled = (newPosition - currentPosition) 
+
+        local timeInterval = newTime - currentTime
+        local velocity = distanceTraveled / timeInterval
+        currentPosition = newPosition
+        currentTime = newTime
+        return loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+    end
+end
+
+task.wait()
+get_calculated_velocity()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"))()
 wait(5)
@@ -132,7 +156,7 @@ local Player = game:GetService("Players").LocalPlayer
             local Mouse = Player:GetMouse()
             local SpeedGlitch = false
             Mouse.KeyDown:Connect(function(Key)
-                if Key == "z" then
+                if Key == "x" then
                     SpeedGlitch = not SpeedGlitch
                     if SpeedGlitch == true then
                         repeat game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", true, game)
