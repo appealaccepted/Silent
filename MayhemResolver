@@ -1,54 +1,58 @@
-local RunService = game:GetService("RunService")
+getgenv().Resolver = false -- true if u want it on
+getgenv().KeyBind = Enum.KeyCode.Y -- replace X with ur keybind u want it to be make sure its caps
 
-local function zeroOutYVelocity(hrp)
-
-for i,v in pairs(game:GetService("Players"):GetChildren()) do
-    if v.Name ~= game:GetService("Players").LocalPlayer.Name then
-        old_vel = v.Character.HumanoidRootPart.Velocity
-
-        local X = -0 or 0
-        local Y = -0 or 0
-        local Z = -0 or 0
-
-        if old_vel ~= -0 or old_vel ~= 0 then
-            
-            old_vel = X,Y,Z
-
-        end
-
-
-    end
-end
-
-    local X = -0 or 0
-    local Y = -0 or 0
-    local Z = -0 or 0
-
-    hrp.Velocity = Vector3.new(X, Y, Z)
-    hrp.AssemblyLinearVelocity = Vector3.new(X, Y, Z)
-end
-
-local function onPlayerAdded(player)
-    player.CharacterAdded:Connect(function(character)
-        local hrp = character:WaitForChild("HumanoidRootPart")
-        zeroOutYVelocity(hrp)
-    end)
-end
-
-local function onPlayerRemoving(player)
-    player.CharacterAdded:Disconnect()
-end
-
-game.Players.PlayerAdded:Connect(onPlayerAdded)
-game.Players.PlayerRemoving:Connect(onPlayerRemoving)
-
-RunService.Heartbeat:Connect(function()
-    pcall(function()
-        for i, player in pairs(game.Players:GetChildren()) do
-            if player.Name ~= game.Players.LocalPlayer.Name then
-                local hrp = player.Character.HumanoidRootPart
-                zeroOutYVelocity(hrp)
+getgenv().DirectionToShoot = "One"
+local uis = game:service'UserInputService'
+uis.InputBegan:Connect(
+    function(a, t)
+        if not t then
+            if a.KeyCode == getgenv().KeyBind and getgenv().Resolver == false then
+                getgenv().Resolver = true
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Mayhem V1";
+                    Text = "Resolver V1 : Enabled";
+                    Icon = "";
+                    Duration = 5;
+                    })
+                elseif a.KeyCode == getgenv().KeyBind and getgenv().Resolver == true then
+                getgenv().Resolver = false
+                game.StarterGui:SetCore("SendNotification", {
+                    Title = "Mayhem V1";
+                    Text = "Resolver V1 : Disabled";
+                    Icon = "";
+                    Duration = 5;
+                    })
             end
         end
-    end)
+end)
+
+getgenv().Direction = nil
+
+if getgenv().DirectionToShoot == "Behind" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+elseif getgenv().DirectionToShoot == "Down" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+elseif getgenv().DirectionToShoot == "ForWard" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+elseif getgenv().DirectionToShoot == "Left" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+elseif getgenv().DirectionToShoot == "One" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+elseif getgenv().DirectionToShoot == "Right" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+elseif getgenv().DirectionToShoot == "Up" then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+elseif getgenv().DirectionToShoot == "Zero" then
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+end
+
+
+game:GetService("RunService").heartbeat:Connect(function()
+    if getgenv().Resolver == true then
+    local abc = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
+    game:GetService("RunService").RenderStepped:Wait()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = abc
+    end
 end)
