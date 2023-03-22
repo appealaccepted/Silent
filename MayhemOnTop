@@ -122,22 +122,7 @@ grmt.__index = newcclosure(function(self, v)
     return backupindex(self, v)
 end)
 
-local RunService = game:GetService("RunService")
-
-RunService.Heartbeat:Connect(function()
-   pcall(function()
-       for i,v in pairs(game.Players:GetChildren()) do
-           if v.Name ~= game.Players.LocalPlayer.Name then
-               local hrp = v.Character.HumanoidRootPart
-               
-               if hrp:GetPropertyChangedSignal("Velocity") then
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-               end
-               
-           end
-       end
-   end)
-end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"))()
 wait(5)
