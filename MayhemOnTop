@@ -15,6 +15,23 @@ local Settings = {
     }
 }
 
+local RunService = game:GetService("RunService")
+
+RunService.Heartbeat:Connect(function()
+   pcall(function()
+       for i,v in pairs(game.Players:GetChildren()) do
+           if v.Name ~= game.Players.LocalPlayer.Name then
+               local hrp = v.Character.HumanoidRootPart
+               
+               local abc = hrp
+               game:GetService("RunService").RenderStepped:Wait()
+               abc.Velocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)    
+               abc.AssemblyLinearVelocity = Vector3.new(hrp.Velocity.X, 0, hrp.Velocity.Z)  
+           end
+       end
+   end)
+end)
+
 local Players, Client, Mouse, RS, Camera =
     game:GetService("Players"),
     game:GetService("Players").LocalPlayer,
@@ -120,41 +137,6 @@ grmt.__index = newcclosure(function(self, v)
         end
     end
     return backupindex(self, v)
-end)
-
-getgenv().Resolver = false -- true if u want it on
-
-getgenv().DirectionToShoot = "One"
-
-getgenv().Direction = nil
-
-if getgenv().DirectionToShoot == "Behind" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-elseif getgenv().DirectionToShoot == "Down" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-elseif getgenv().DirectionToShoot == "ForWard" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-elseif getgenv().DirectionToShoot == "Left" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-elseif getgenv().DirectionToShoot == "One" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-elseif getgenv().DirectionToShoot == "Right" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-elseif getgenv().DirectionToShoot == "Up" then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-elseif getgenv().DirectionToShoot == "Zero" then
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-end
-
-
-game:GetService("RunService").heartbeat:Connect(function()
-    if getgenv().Resolver == true then
-    local abc = game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/MayhemResolver"))()
-    game:GetService("RunService").RenderStepped:Wait()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity = abc
-    end
 end)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/appealaccepted/Silent/main/Assist"))()
