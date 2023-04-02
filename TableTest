@@ -1,13 +1,9 @@
-if not game:IsLoaded() then
-	game.Loaded:Wait() -- make sure game is laoded before executing
-end
-
 local Players, Client, Mouse, RS, Camera =
 	game:GetService("Players"),
-game:GetService("Players").LocalPlayer,
-game:GetService("Players").LocalPlayer:GetMouse(),
-game:GetService("RunService"),
-game.Workspace.CurrentCamera
+	game:GetService("Players").LocalPlayer,
+	game:GetService("Players").LocalPlayer:GetMouse(),
+	game:GetService("RunService"),
+	game.Workspace.CurrentCamera
 
 local Circle = Drawing.new("Circle")
 Circle.Color = Color3.new(1, 1, 1) -- 1,1,1 normal -- 1,0,0 red
