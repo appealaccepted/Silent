@@ -1,0 +1,112 @@
+--[[
+getgenv().Settings = {
+    ['Mode'] = 'Both',
+    ['Anti Execution Logger'] = true,
+    ['Anti Perms'] = true
+}
+]]
+
+repeat
+    task.wait()
+until game:IsLoaded()
+
+if Settings.Mode:lower() == "Both" then
+    
+    if Settings['Anti Execution Logger'] then
+        local antiExecLogger; antiExecLogger = hookfunc(game.HttpGet, newcclosure(function(...)
+            if ({...})[2]:find'.php' then
+                return
+            end
+            return antiExecLogger(...)
+        end))
+    end
+    if Settings['Anti Perms'] then
+        local owners, premUsers, boosters = (function()
+            local savedStr = "return{'"..game:HttpGet'https://raw.githubusercontent.com/NighterEpic/ModNames/main/YesEpic':gsub('</br>', "','")
+            return loadstring(savedStr:sub(1, savedStr:len()-2)..'}')()
+        end)(), loadstring('return{'..syn.request({ Url = 'http://38.242.134.182:4040/whitelists' }).Body:split'['[2]:split']'[1]..'}')(), loadstring('return{'..syn.request({ Url = 'https://raw.githubusercontent.com/NighterEpic/BoosterIds/main/YesEpic' }).Body:split'['[2]:split']'[1]..'}')()
+        for _, p in pairs(game:FindService'Players':GetPlayers()) do
+            if table.find(premUsers, p.UserId) or table.find(boosters, p.UserId) then
+                repeat
+                    task.wait()
+                until p.Character:FindFirstChildWhichIsA'Humanoid'
+                p.Character:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
+                p.CharacterAdded:connect(function(user)
+                    user:WaitForChild'FULLY_LOADED_CHAR'
+                    user:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
+                end)
+            elseif table.find(owners, p.Name) then
+                repeat
+                    task.wait()
+                until p.Character:FindFirstChildWhichIsA'Humanoid'
+                p.Character:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
+                p.CharacterAdded:connect(function(user)
+                    user:WaitForChild'FULLY_LOADED_CHAR'
+                    user:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
+                end)
+            end
+        end
+        local antiFadedsPerms_1; antiFadedsPerms_1 = hookfunc(syn.request, newcclosure(function(...)
+            if ({...})[1].Url == 'http://38.242.134.182:4040/whitelists' or ({...})[1].Url == 'https://raw.githubusercontent.com/NighterEpic/BoosterIds/main/YesEpic' then
+                return
+            end
+            return antiFadedsPerms_1(...)
+        end))
+        local AntiFadedsPerms_2; AntiFadedsPerms_2 = hookfunc(game.HttpGet, newcclosure(function(...)
+            if ({...})[2] == 'https://raw.githubusercontent.com/NighterEpic/ModNames/main/YesEpic' then
+                return
+            end
+            return AntiFadedsPerms_2(...)
+        end))
+    end
+    task.wait(.1)
+    do
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic', true))()
+    end
+elseif Settings.Mode:lower() == 'Both' then
+    if Settings['Anti Execution Logger'] then
+        local antiExecLogger; antiExecLogger = hookfunc(game.HttpGet, newcclosure(function(...)
+            if ({...})[2]:find'.php' then
+                return
+            end
+            return antiExecLogger(...)
+        end))
+    end
+    if Settings['Anti Perms'] then
+        local owners, premUsers = loadstring(game:HttpGet'https://raw.githubusercontent.com/swagmode/swagmode/main/swagdif')(), loadstring('return{'..game:HttpGet'https://raw.githubusercontent.com/swagmode/swagmode/main/swagmain':split'ModIDS = {'[2]:split'}'[1]..'}')()
+        for _, p in pairs(game:FindService'Players':GetPlayers()) do
+            if table.find(premUsers, p.UserId) then
+                repeat
+                    task.wait()
+                until p.Character:FindFirstChildWhichIsA'Humanoid'
+                p.Character:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
+                p.CharacterAdded:connect(function(user)
+                    user:WaitForChild'FULLY_LOADED_CHAR'
+                    user:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[⭐]'..p.DisplayName
+                end)
+            elseif table.find(owners, p.UserId) then
+                repeat
+                    task.wait()
+                until p.Character:FindFirstChildWhichIsA'Humanoid'
+                p.Character:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
+                p.CharacterAdded:connect(function(user)
+                    user:WaitForChild'FULLY_LOADED_CHAR'
+                    user:FindFirstChildWhichIsA'Humanoid'.DisplayName = '[👑]'..p.DisplayName
+                end)
+            end
+        end
+        local antiSwagmodesPerms; antiSwagmodesPerms = hookfunc(game.HttpGet, newcclosure(function(...)
+            if ({...})[2] == 'https://raw.githubusercontent.com/swagmode/swagmode/main/swagmain' or ({...})[2] == 'https://raw.githubusercontent.com/swagmode/swagmode/main/swagdif' then
+                return
+            end
+            return antiSwagmodesPerms(...)
+        end))
+    end
+    task.wait(.1)
+    do
+        loadstring(game:HttpGet'https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002')()
+    end
+else
+    game:FindService'Players'.localPlayer:kick'Invalid mode.'
+end
+end
