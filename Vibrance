@@ -1,0 +1,10 @@
+game:GetService"Lighting":FindFirstChild"ColorCorrection":Destroy()
+    
+    local NewInstanceGameBeautify = Instance.new("ColorCorrectionEffect")
+    
+    NewInstanceGameBeautify.Parent = game:GetService"Lighting"
+    NewInstanceGameBeautify.Name = "ColorCorrection"
+    NewInstanceGameBeautify.Brightness = 0
+    NewInstanceGameBeautify.Contrast = 0.05
+    NewInstanceGameBeautify.Saturation = 1.5
+    --NewInstanceGameBeautify.TintColor = 255,255,255
